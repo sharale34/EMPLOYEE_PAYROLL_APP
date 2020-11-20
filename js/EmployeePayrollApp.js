@@ -42,6 +42,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             dateError.textContent = e;
         }
     });
+
     const salary = document.querySelector('#salary');
     const output = document.querySelector('.salary-output');
     output.textContent = salary.value;
@@ -53,9 +54,25 @@ window.addEventListener('DOMContentLoaded', (event) => {
 const save = () => {
     try {
         let employeePayrollData = createEmployeePayroll();
+        createAndUpdateStorage(employeePayrollData);
     } catch (e) {
         return;
     }
+}
+
+function createAndUpdateStorage(employeePayrollData) {
+    localStorage.clear;
+    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    if (employeePayrollList == null) {
+        employeePayrollList = [];
+    }
+    if (employeePayrollData != undefined) {
+        employeePayrollList.push(employeePayrollData);
+    } else {
+        employeePayrollList = [employeePayrollData];
+    }
+    alert(employeePayrollList.toString())
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
 }
 
 const createEmployeePayroll = () => {
@@ -84,4 +101,6 @@ const createEmployeePayroll = () => {
     employeePayrollData.startDate = startDate;
     employeePayrollData.note = getInputValueById('#notes');
     alert(employeePayrollData.toString());
+    return employeePayrollData;
 }
+
