@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/EmployeePayrollApp.css">
     <title>Employee Payroll Form</title>
+    <script src="../js/EmployeePayrollData.js"></script>
+    <script src="../js/EmployeePayrollApp.js"></script>
 </head>
 
 <body>
@@ -19,12 +21,13 @@
             </div>
         </div>
     </header>
-    <div class="form-content">
-        <form class="form" action="#" onsubmit="save(event);return false">
+    <div id="formId" class="form-content">
+        <form class="form" action="#" onreset="resetForm()"onsubmit="save()">
             <div class="form-head">Employee Payroll Form</div>
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
+                <error-output class="text-error" for='text'></error-output>
             </div>
             <div class="row-content">
                 <label class="label text" for="profile">Profile Image</label>
@@ -83,7 +86,7 @@
             </div>
             <div class="row-content">
                 <label class="label text" for="startDate">Start Date</label>
-                <div>
+                <div id="startDate">
                     <select name="Day" id="day">
                         <option value="Day">Day</option>
                         <option value="1">1</option>
@@ -120,18 +123,18 @@
                     </select>
                     <select name="Month" id="month">
                         <option value="Month">Month</option>
-                        <option value="Jan">January</option>
-                        <option value="Feb">Febuary</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
-                        <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="Aug">August</option>
-                        <option value="Sept">September</option>
-                        <option value="Oct">October</option>
-                        <option value="Nov">November</option>
-                        <option value="Dec">December</option>
+                        <option value=1>January</option>
+                        <option value=2>Febuary</option>
+                        <option value=3>March</option>
+                        <option value=4>April</option>
+                        <option value=5>May</option>
+                        <option value=6>June</option>
+                        <option value=7>July</option>
+                        <option value=8>August</option>
+                        <option value=9>September</option>
+                        <option value=10>October</option>
+                        <option value=11>November</option>
+                        <option value=12>December</option>
                     </select>
                     <select name="Year" id="year">
                         <option value="Year">Year</option>
@@ -142,6 +145,7 @@
                         <option value="2016">2016</option>
                     </select>
                 </div>
+                <error-output class="date-error" for='text'></error-output>
             </div>
             <div class="row-content">
                 <label class="label text" for="notes">Notes</label>
@@ -156,7 +160,6 @@
             </div>
         </form>
     </div>
-    <script type="text/javascript" src="../js/EmployeePayrollApp.js"></script>
 </body>
 
 </html>
