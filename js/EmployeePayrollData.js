@@ -9,9 +9,10 @@ class EmployeePayrollData {
     get name() { return this._name; }
     set name(name) {
         let nameRegex = RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
-        if (nameRegex.test(name))
+        if (nameRegex.test(name)) {
             this._name = name;
-        else throw 'Name is Incorrect! ';
+        }
+        else throw 'Name is Incorrect!';
     }
 
     get profilePic() { return this._profilePic; }
@@ -38,6 +39,7 @@ class EmployeePayrollData {
     set startDate(startDate) {
         if (startDate <= new Date())
             this._startDate = startDate;
+        else throw 'Date is Incorrect!';
     }
 
     //method
