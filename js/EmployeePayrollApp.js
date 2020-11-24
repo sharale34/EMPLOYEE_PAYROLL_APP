@@ -69,9 +69,9 @@ function createAndUpdateStorage(employeePayrollData) {
     if (employeePayrollData != undefined) {
         employeePayrollList.push(employeePayrollData);
     } else {
-        employeePayrollList = [employeePayrollData];
+        employeePayrollList = [employeePayrollData]
     }
-    alert(employeePayrollList.toString())
+    alert(employeePayrollList.toString());
     localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
 }
 
